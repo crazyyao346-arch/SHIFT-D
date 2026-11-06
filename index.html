@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study in China's Top Universities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E31E24',
+                        secondary: '#1E3A8A',
+                        accent: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/image\ 3.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        #nos-formation {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50" x-data="{ open: false }">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        <span>EduChina</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-secondary font-medium hover:text-primary transition">Home</a>
+                    <a href="#services" class="text-gray-600 font-medium hover:text-primary transition">Services</a>
+
+                    <a href="#testimonials"
+                        class="text-gray-600 font-medium hover:text-primary transition">Testimonials</a>
+                    <a href="#contact" class="text-gray-600 font-medium hover:text-primary transition">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden" x-show="open" @click.away="open = false" x-transition>
+                <div class="pt-4 pb-2 space-y-2">
+                    <a href="#"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Home</a>
+                    <a href="#services"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Services</a>
+                    <a href="#universities"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Universities</a>
+                    <a href="#testimonials"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Testimonials</a>
+                    <a href="#contact"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Le changement commence par ce que vous décidez
+                    d'apprendre</h1>
+                <p class="text-lg md:text-xl mb-8">Explorez de nouvelles possibilités dans l'univers du digital.
+                    Développez votre savoir-faire, renforcez vos compétences et donnez vie à vos ambitions grâce à nos
+                    formations et à notre accompagnement.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#universities"
+                        class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Inscrivez-vous ici
+                    </a>
+                    <a href="#contact"
+                        class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg transition duration-300">
+                        contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">NOS FORMATIONS</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Nous proposons des formations et un accompagnement pour développer vos compétences et réussir dans le digital avec SHIFT D.</p>
+            </div>
+
+            <div class="grid md:grid-cols-1 gap-8" id="nos-formation">
+                <!-- China Services -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Carte 1 : Marketing digital -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-flag text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Marketing digital</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="service-card bg-white p-4 rounded-lg shadow-sm">
+                                <div class="flex items-start">
+                                    <i class="fas fa-award text-accent text-xl mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-1">Stratégie et visibilité digitale</h4>
+                                        <p class="text-gray-600">
+                                            Fondamentaux et stratégie du marketing digital<br>
+                                            Communication digitale et gestion des réseaux sociaux<br>
+                                            Community Management<br>
+                                            Publicité digitale (Meta Ads)<br>
+                                            Création de contenu digital
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 2 : Création graphique -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-mosque text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Création graphique</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="service-card bg-white p-4 rounded-lg shadow-sm">
+                                <div class="flex items-start">
+                                    <i class="fas fa-percentage text-accent text-xl mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-1">Design et identité visuelle</h4>
+                                        <p class="text-gray-600">
+                                            Initiation à Photoshop et maîtrise d’Adobe Illustrator<br>
+                                            Création d’affiches, de flyers et de supports publicitaires<br>
+                                            Création de logos et d’identités visuelles
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 3 : Intelligence artificielle -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-flag text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Intelligence artificielle</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="service-card bg-white p-4 rounded-lg shadow-sm">
+                                <div class="flex items-start">
+                                    <i class="fas fa-award text-accent text-xl mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-1">Innovation et outils IA</h4>
+                                        <p class="text-gray-600">
+                                            Découverte de l'intelligence artificielle<br>
+                                            Prise en main des outils IA<br>
+                                            Production de contenus avec l'IA<br>
+                                            Création d'images et de vidéos grâce à l'IA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 4 : Audiovisuel et montage vidéo -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary rounded-full p-3 mr-4">
+                                <i class="fas fa-flag text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Audiovisuel et montage vidéo</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="service-card bg-white p-4 rounded-lg shadow-sm">
+                                <div class="flex items-start">
+                                    <i class="fas fa-award text-accent text-xl mt-1 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800 mb-1">Montage vidéo</h4>
+                                        <p class="text-gray-600">
+                                            Initiation au montage vidéo<br>
+                                            Montage vidéo avec CapCut<br>
+                                            Techniques de cadrage et de prise de vue<br>
+                                            Création de vidéos publicitaires<br>
+                                            Réalisation de contenus vidéo pour les réseaux sociaux
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+    </section>
+
+    <!-- Partner Universities Section -->
+    <section id="universities" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">COACHING</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Un accompagnement pour concrétiser vos projets digitaux.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- University 1 -->
+                <div class="university-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="image/image 4.jpeg" alt="Fudan University" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-2">stratégie de communication</h3>
+                        <p class="text-gray-600">Apprenez à construire une stratégie de communication, gérer vos réseaux
+                            sociaux, créer du contenu et faire connaître efficacement votre activité.</p>
+                    </div>
+                </div>
+
+                <!-- University 2 -->
+                <div class="university-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="image/image 2.jpeg" alt="Fudan University" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-2">création visuelle</h3>
+                        <p class="text-gray-600">Développez votre créativité et apprenez à concevoir des supports
+                            visuels attractifs pour valoriser votre image de marque et donner vie à vos idées.</p>
+                    </div>
+                </div>
+
+                <!-- University 3 -->
+                <div class="university-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="image/image 1.jpeg" alt="Fudan University" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-2">entrepreneuriat</h3>
+                        <p class="text-gray-600">Apprenez à transformer vos idées en projets concrets, à créer votre
+                            activité, à élaborer un business plan et à développer votre entreprise..</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">POURQUOI CHOISIR NOS SERVICES</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">We are committed to providing the best services to ensure the
+                    success of your educational journey.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Strength 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-full p-4 inline-block mb-4">
+                        <i class="fas fa-history text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-2">Experience</h3>
+                    <p class="text-gray-600">Years of experience helping international students achieve their academic
+                        dreams.</p>
+                </div>
+
+                <!-- Strength 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-full p-4 inline-block mb-4">
+                        <i class="fas fa-hands-helping text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-2">Comprehensive Support</h3>
+                    <p class="text-gray-600">From application to graduation, we're with you every step of the way.</p>
+                </div>
+
+                <!-- Strength 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-full p-4 inline-block mb-4">
+                        <i class="fas fa-eye text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-2">Transparency</h3>
+                    <p class="text-gray-600">Clear and honest information about every step of the process.</p>
+                </div>
+
+                
+                
+
+                <!-- Testimonial 3 -->
+                
+                </div>
+            </div>
+        </div>
+    </section>
+                <!-- Testim
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">DÉMARRER MAINTENANT</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Contact us today for a free consultation about your study
+                    options.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Info -->
+                <div>
+                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                        <h3 class="text-xl font-bold text-secondary mb-6">Contact</h3>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Address</h4>
+                                    <p class="text-gray-600">123 Education Street, Beijing, China</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-4">
+                                    <i class="fas fa-phone-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+86 10 1234 5678</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-4">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">info@educhina.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-primary bg-opacity-10 rounded-full p-3 mr-4">
+                                    <i class="fab fa-whatsapp text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">WhatsApp</h4>
+                                    <p class="text-gray-600">+225 07 49 03 86 58</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-800 mb-4">suivez nous</h4>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="bg-gray-200 hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-200 hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-200 hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="bg-gray-200 hover:bg-primary hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <div class="bg-gray-50 rounded-xl p-6 h-full">
+                        <h3 class="text-xl font-bold text-secondary mb-6">Envoyez-nous un message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                                    <input type="text" id="name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="yao jean yves">
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email
+                                        Address</label>
+                                    <input type="email" id="email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="crazyyao346@gmail.com">
+                                </div>
+
+                                <div>
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Numéro de téléphone</label>
+                                    <input type="tel" id="phone"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="+225 07 49 03 86 58">
+                                </div>
+
+                                <div>
+                                    <label for="interest" class="block text-gray-700 font-medium mb-2">Interest</label>
+                                    <select id="interest"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                        <option value="">Select your interest</option>
+                                        <option value="china">Study in China</option>
+                                        <option value="turkey">Study in Turkey</option>
+                                        <option value="scholarship">Scholarship Information</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                    <textarea id="message" rows="4"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="votre message..."></textarea>
+                                </div>
+
+                                <div>
+                                    <button type="submit"
+                                        class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">shift D</h3>
+                    <p class="text-gray-300 mb-4">partenaire en formation et coaching dans l'univers du digital.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Nos domaines</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Marketing digital</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition">Création graphique</a></li>
+                        <li><a href="#universities" class="text-gray-300 hover:text-white transition">Intelligence artificielle</a>
+                        </li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-white transition">Audiovisuel</a>
+                        </li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-gray-300"></i>
+                            <span class="text-gray-300">BP 1234 Abidjan 01, Plateau, Côte d'Ivoire</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-gray-300"></i>
+                            <span class="text-gray-300">+225 07 49 03 86 58</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-gray-300"></i>
+                            <span class="text-gray-300">crazyyao346@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 EduChina. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+
+</html>
